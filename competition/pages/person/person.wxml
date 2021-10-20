@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="userinfo">
+  <view class="username">
+    <view wx:if="{{!hasUserInfo}}" class="no">
+      <view>
+        <image class="toux" src="https://706f-poem21-1303198622.tcb.qcloud.la/person/touxiang.png?sign=790d0e6e8180dcb718fd0e1c248687d9&t=1611211455"></image>
+      </view>
+      <view>
+        <button bindtap="login"  style="width:250rpx;font-size:30rpx;">用户登录</button>
+      </view>
+    </view>
+    <block wx:else>
+      <!-- 头像昵称begin -->
+    <view class='mytop-box'>
+      <view class="mytop-avatar">
+        <open-data  type="userAvatarUrl"></open-data>
+      </view>
+      <view class='mytop-username'>
+        <open-data type="userNickName"></open-data>
+      </view>
+    </view>
+  <!-- 头像昵称end -->
+    <view wx-if="{{!hasBind}}">
+        <button bindtap="toRegister"  style="width:280rpx;font-size:30rpx;">还未绑定？</button>
+    </view>
+   <!-- <view wx:else>{{userInfo.nickName}}同学</view>-->
+    </block>
+  </view>
+  <view class="usermotto" bindtap="putin">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
+
+
+
+
+<view class="weui-cells weui-cells_after-title">
+  <navigator url="../myself/myself" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="{{messageImage}}" style="margin-right: 16px;vertical-align: middle;width:30px; height: 30px;"></image>
+    </view>
+    <view class="weui-cell__bd">个人信息</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="../getprize/getprize" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="{{praseImageUrl}}" style="margin-right: 16px;vertical-align: middle;width:30px; height: 30px;"></image>
+    </view>
+    <view class="weui-cell__bd">获奖情况</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+  <navigator url="../appear/appear" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+    <view class="weui-cell__hd">
+      <image src="{{footImageUrl}}" style="margin-right: 16px;vertical-align: middle;width:35px; height: 35px;"></image>
+    </view>
+    <view class="weui-cell__bd">获奖上报</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+  </navigator>
+</view>

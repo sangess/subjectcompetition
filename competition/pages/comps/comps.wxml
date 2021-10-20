@@ -1,0 +1,169 @@
+<view wx:if="{{hasBind}}">
+  <view class="tab">
+    <view class="tab-item {{tab==0?'active':''}}" bindtap="changeItem" data-item="0">院系项目</view>
+    <view class="tab-item {{tab==1?'active':''}}" bindtap="changeItem" data-item="1">我的竞赛</view>
+    <view class="tab-item {{tab==2?'active':''}}" bindtap="changeItem" data-item="2">竞赛申请</view>
+  </view>
+
+
+  <view class="content">
+    <swiper current="{{item}}" bindchange="changeTab">
+      <swiper-item>
+        <scroll-view class="content-info" scroll-y>
+          <view wx:for="{{collegeComps}}" wx:for-index="id" wx:key="key" wx:for-item="item">
+            <view class='content1' data-bzId="{{item._id}}">
+              <view class="content1text">
+                <view>
+                  <span class="title2" bindtap="">{{item.compName}}</span>
+                  <span>({{item.compLevel==0?'国家级':(item.level==1?'省级':'校级')}})</span>
+                  <view
+                    class=" enter {{ item.compState==0?'ready':item.compState==1?'applyIng':item.compState==2?'applyed':item.compState==3?'loading':'end'}}">
+                    <span>
+                      {{item.compState==0?'规划中':
+                      (item.compState==1?'报名中':
+                      (item.compState==2?'备赛中':
+                      (item.compState==3?'比赛中':'已结束')))}}
+                    </span>
+                  </view>
+                </view>
+                <view class="projectName" bindtap="">
+                  <span class="label">项目团队</span>：{{item.projectName}}
+                  <image wx:if="{{item.compState==1}}" bindtap="joinProject" data-projectId="{{item.projectId}}"
+                    class="imgs btn_myComps" src="{{sigupImageUrl}}" />
+                </view>
+                <view class="teacherName" bindtap="">
+                  <span class="label">带队老师</span>：{{item.teacherName}}
+                </view>
+                <view class="time">
+                  <span class="label">比赛时间：</span>{{item.compTime}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="content-info" scroll-y>
+          <view wx:for="{{myComps}}" wx:for-index="id" wx:key="key" wx:for-item="item">
+            <view class='content1' data-bzId="{{item._id}}">
+              <view class="content1text">
+                <view>
+                  <span class="title2" bindtap="">{{item.compName}}</span>
+                  <span>({{item.compLevel==0?'国家级':(item.level==1?'省级':'校级')}})</span>
+                  <view
+                    class=" enter {{ item.compState==0?'ready':item.compState==1?'applyIng':item.compState==2?'applyed':item.compState==3?'loading':'end'}}">
+                    <span>
+                      {{item.compState==0?'规划中':
+                      (item.compState==1?'报名中':
+                      (item.compState==2?'备赛中':
+                      (item.compState==3?'比赛中':'已结束')))}}
+                    </span>
+                  </view>
+                </view>
+                <view class="projectName" bindtap="">
+                  <span class="label">项目团队</span>：{{item.projectName}}
+                  <image class="imgs btn_myComps" bindtap='showRule' data-projectId="{{item.projectId}}"
+                    src="{{checkTeamImageUrl}}" />
+                </view>
+                <view class="teacherName" bindtap="">
+                  <span class="label">带队老师</span>：{{item.teacherName}}
+                  <image class="imgs btn_myComps" bindtap="showExit" data-projectid="{{item.projectId}}"
+                    src="{{exitTeamImageUrl}}" />
+                </view>
+                <view class="time">
+                  <span class="label">比赛时间：</span>{{item.compTime}}
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="content-info" scroll-y>
+          <view wx:for="{{applyList}}" wx:for-index="id" wx:key="key" wx:for-item="item">
+            <view class="content1 " data-bzId="{{item._id}}">
+              <view class="content1text ">
+                <view>
+                  <span class="title2" bindtap="">{{item.compName}}</span>
+                  <span>({{item.compLevel==0?'国家级':(item.level==1?'省级':'校级')}})</span>
+                  <image class="imgs btn_myComps" bindtap="showInvoke" data-projectid="{{item.projectId}}"
+                    src="{{invokeImageUrl}}" />
+                </view>
+                <view class="projectName" bindtap="">
+                  <span class="label">项目团队</span>：{{item.projectName}}
+                </view>
+                <view class="teacherName" bindtap="">
+                  <span class="label">带队老师</span>：{{item.teacherName}}
+                </view>
+                <view class="time">
+                  <span class="label">比赛时间：</span>{{item.compTime}}
+                </view>
+                <view class="time">
+                  <span class="label">更新日期：</span>{{item.updateDate}}
+                </view>
+                <block class="time btn_myComps">
+                  <span>>>>>>>>>>>>>>>>>>>>>>></span>
+                  <view
+                    class="enter {{item.applyState==0?'ready':item.applyState==1?'ready':item.applyState==2?'loading':item.applyState==3?'applyIng':'ready'}}">
+                    <span>
+                      {{item.applyState==1?'未审核':
+                      (item.applyState==2?'驳回':
+                      (item.applyState==3?'已同意':'重新申请'))}}
+                    </span>
+                  </view>
+                </block>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<view wx:else>
+  尚未登录
+</view>
+
+<popup id='popup' title='退出比赛' content='是否退出比赛？' btn_no='没考虑好' btn_ok='确定' bind:error="_error" bind:success="_success">
+</popup>
+<popup id='invoke' title='撤销申请' content='是否撤销申请' btn_no='没考虑好' btn_ok='确定' bind:error="invoke_error"
+  bind:success="invoke_success">
+</popup>
+<view class="ruleZhezhao {{isRuleTrue?'isRuleShow':'isRuleHide'}}">
+  <view class='ruleZhezhaoContent'>
+    <view class='ruleZhezhaoText'>
+      <text>
+        项目名称：{{projectInfo.projectName}}
+      </text>
+      <text>
+        竞赛：{{projectInfo.compName}}
+      </text>
+      <text>
+        竞赛状态：{{projectInfo.compState==0?'规划中':
+        (projectInfo.compState==1?'报名中':
+        (projectInfo.compState==2?'备赛中':
+        (projectInfo.compState==3?'竞赛进行中':'竞赛结束')))}}
+      </text>
+      <text>
+        竞赛时间：{{projectInfo.compTime}}
+      </text>
+      <text>
+        组织者：{{projectInfo.compOrganizer}}
+      </text>
+      <text>
+        竞赛级别：{{projectInfo.compLevel==0?'国家级':(projectInfo.compLevel==1?'省级':'校级')}}
+      </text>
+      <view wx:for="{{projectInfo.teacherList}}" wx:key="key" wx:for-item="item">
+        <text>
+          指导老师：{{item.personName}}>>>>用户名：{{item.personUsername}}
+        </text>
+      </view>
+      <view wx:for="{{projectInfo.studentList}}" wx:key="key" wx:for-item="item">
+        <text>
+          参赛学生：{{item.personName}}>>>>用户名：{{item.personUsername}}
+        </text>
+      </view>
+    <image src='{{invokeImageUrl}}' class='ruleHide' bindtap='hideRule' />
+    </view>
+  </view>
+</view>

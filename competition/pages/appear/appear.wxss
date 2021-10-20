@@ -1,0 +1,224 @@
+
+.picOut{
+  padding: 10rpx;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.picOut .item{
+  position: relative;
+}
+.picOut .item .close{
+  position: absolute;
+  top: 0;
+  right:0 ;
+  width: 40rpx;
+  height: 40rpx;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  font-size:30rpx ;
+  border-radius: 50rpx;
+}
+.picOut .item image{
+  width: 100%;
+  height: 100%;
+}
+.lastpush{
+  display: flex;
+  flex: left;
+  color:rgb(173, 169, 169);
+  margin-top:20rpx;
+  margin-left: 25rpx;
+  padding-left: 25px;
+}
+
+.push input,textarea{
+  width:85%;
+  padding:10rpx;
+  margin-left: 60rpx;
+  border:1px solid #ccc;
+}
+.img{
+  margin-left:40rpx;
+} 
+
+
+.smart-green {
+  max-width:500px;
+  max-height:350px;
+  background: #FFF;
+  padding: 30px 30px 0px 0px;
+  color: #666;
+}
+.title h1 {
+  font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding: 20px 0px 20px 40px;
+  display: block;
+  margin: -30px -30px 10px -30px;
+  color: #FFF;
+  background: #0ea2cf;
+  text-shadow: 1px 1px 1px #949494;
+  border-bottom: 1px solid #2bc8e4;
+}
+.title h1 > span {
+  display: block;
+  font-size: 11px;
+  color: #FFF;
+}
+
+
+ input {
+  color: #555;
+  height: 30px;
+  line-height: 15px;
+  width: 100%;
+  padding: 0px 0px 0px 10px;
+  margin-top: 2px;
+  border: 1px solid #E5E5E5;
+  background: #FBFBFB;
+  outline: 0;
+  box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+  font: normal 14px/14px Arial, Helvetica, sans-serif;
+} 
+
+.w{
+  font-size: 2.5vh;
+  border: 1rpx solid #48c8fa;
+  border-radius: 10rpx;
+  margin-left: 20px;
+  padding: 2.5vh 30rpx;
+  margin-bottom: 1vh;
+
+}
+.push{
+  font-size: 2.5vh;
+  height: 300rpx;
+  border: 1rpx solid #48c8fa;
+  border-radius: 10rpx;
+  padding: 1.5vh 30rpx;
+  margin-left: 20px;
+  margin-bottom: 1.5vh;
+}
+.btn-area{
+  margin-top: 100rpx;
+  width: 80rpx;
+  align-items:center;
+  padding-left: 55px;
+}
+.btn1 {
+  width: 80%;
+  margin-top: 20rpx;
+  background-color: beige;
+  color: white;
+  border-radius: 98rpx; 
+}
+.btn1::after {
+  border-radius: 98rpx;
+}
+/****************/
+
+
+/* pages/subQuestion/subQuestion.wxss */
+.question-text{
+	padding: 20rpx;
+  text-align: center;
+  background: linear-gradient(to bottom,#fff,#2bc8e4);
+}
+.backlin{
+  background: linear-gradient(to left,#fff,#2bc8e4);
+}
+.question-text text{
+	display: block;
+	color: #888;
+	font-size: 28rpx;
+}
+.question-text view{
+	font-size: 48rpx;
+	color: #f7982a;
+}
+.footer-tab{
+	display: flex;
+	width: 100%;
+	border-top: 1rpx solid #ddd;
+}
+.footer-tab .footer-tab-item{
+	flex: 1;
+	text-align: center;
+}
+
+.footer-tab-widthicon image{
+	width: 44rpx;
+	height: 44rpx;
+	display: block;
+	margin: 10rpx auto 0;
+}
+.footer-tab-item text{
+	font-size: 24rpx;
+	color: #888;
+}
+.footer-tab-item.active text{
+	color: #f7982a;
+}
+button:not([size='mini']){
+    width:100%; 
+}
+.btn-block{
+    line-height: 24px;
+}
+.img-add image{
+    width: 100%;
+    height: 100%;
+}
+.input{
+  padding-left: 10px;
+}
+/*
+***地址信息
+*/
+.btnchoose{
+  display: block;
+  height: 35px;
+  font-size: 15px;
+  float: right;
+  background-color:  #10c0ec;
+  color: black;
+}
+.address{
+ background: none;
+}
+.tit{
+  width: 100%;
+  font-size: 16px;
+  line-height: 30px;
+  
+  font-style: none;
+  box-shadow: 0 0 2px #b8b8b8bd;
+  color: #4d4949;
+  text-align: left;
+}
+
+.address text:not(.cuIcon-addressbook){
+  display: inline-block;
+  padding-left: 10px;
+  color: rgb(163, 159, 159);
+  line-height: 40px;
+}
+.add{
+  display: inline-block;
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  /* color: grey; */
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 5px;
+}
+
+.add .addtext{
+  color: #000000;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 100%;
+  
+}

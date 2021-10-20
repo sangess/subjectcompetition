@@ -1,0 +1,103 @@
+<view class="userinfo">
+  <view class="username">
+    <view wx:if="{{!hasUserInfo}}" class="no">
+      <view>
+        <image class="toux"
+          src="https://706f-poem21-1303198622.tcb.qcloud.la/person/touxiang.png?sign=790d0e6e8180dcb718fd0e1c248687d9&t=1611211455">
+        </image>
+      </view>
+      <view>
+        <button bindtap="login" style="width:250rpx;font-size:30rpx;">用户登录</button>
+      </view>
+    </view>
+    <block wx:else>
+      <!-- 头像昵称begin -->
+      <view class='mytop-box'>
+        <view class="mytop-avatar">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class='mytop-username'>
+          <text>{{studentInfo.nickname}}同学，你好!</text>
+        </view>
+      </view>
+      <!-- 头像昵称end -->
+      <view wx-if="{{!hasBind}}">
+        <button bindtap="toRegister" style="width:280rpx;font-size:30rpx;">还未绑定？</button>
+      </view>
+    </block>
+  </view>
+</view>
+<view>
+  <view class="comlist">
+    <view class="one">
+      <view class="one1">姓名：</view>
+      <view class="comname">{{studentInfo.nickname}}</view>
+    </view>
+    <view class="three">
+      <view class="three1">学院：</view>
+      <view class="comacademy">{{studentInfo.college.nickname}}</view>
+    </view>
+
+   <!-- 菜单列表部分 -->
+   <view class="wear-menu">
+      <view class='menu-box' >
+        <view class="menu-img" bindtap="selectMenu" data-index="{{index}}" data-id="{{compInfo.id}}">
+          <image src='{{compInfo.img}}'></image>
+        </view>
+        <view class='menu-title'>
+          <text>{{compInfo.title}}</text>
+        </view>
+        <view class="menu-sum">
+          <text>共{{compCount+2}}次</text>
+        </view>
+      </view>
+      <view class='menu-box' >
+        <view class="menu-img" bindtap="selectMenu" data-index="{{index}}" data-id="{{item.id}}">
+          <image src='{{scoreInfo.img}}'></image>
+        </view>
+        <view class='menu-title'>
+          <text>{{scoreInfo.title}}</text>
+        </view>
+        <view class="menu-sum">
+          <text>{{score}}分</text>
+        </view>
+      </view>
+      <view class='menu-box' >
+        <view class="menu-img" bindtap="selectMenu" data-index="{{index}}" data-id="{{item.id}}">
+          <image src='{{listInfo.img}}'></image>
+        </view>
+        <view class='menu-title'>
+          <text>{{listInfo.title}}</text>
+        </view>
+        <view class="menu-sum">
+          <text>第{{list}}名</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="four">
+      <view class="four1">历史足迹：</view>
+      <view class='coms' wx:for="{{competitions}}" wx:for-item="item" wx:key="id">
+        <view class="comname2">
+          <view>
+            <label class="label">参加竞赛：</label>{{item.compName}}
+            <view>
+              <label class="label">参与项目：</label>{{item.projectName}}
+              <view
+                class=" enter {{ item.compState==0?'ready':item.compState==1?'applyIng':item.compState==2?'applyed':item.compState==3?'loading':'end'}}">
+                {{item.compState==0?'规划中':
+                (item.compState==1?'报名中':
+                (item.compState==2?'备赛中':
+                (item.compState==3?'比赛中':'已结束')))}}
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+</view>

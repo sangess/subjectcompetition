@@ -1,0 +1,128 @@
+
+.content-info-slide image {
+  width: 100%;
+  height: 100%;
+}
+
+.search {
+  padding: 20rpx;
+}
+
+.page__bd {
+  background-color: rgba(141, 214, 243, 0.678);
+}
+
+.search-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60rpx;
+  color: #aaa;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 20rpx;
+}
+
+.search-text icon {
+  margin-right: 10rpx;
+}
+
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result .weui-cell__bd {
+  padding: 2px 0 2px 20px;
+  color: var(--weui-FG-1);
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.title {
+  color: rgb(6, 47, 124);
+  width: 100%;
+  height: 50rpx;
+  padding: 15rpx;
+  padding-left: 30rpx;
+  border-bottom: 1px solid rgb(181, 202, 241);
+}
+
+/* 内容栏 */
+.content-info {
+  width: 100%;
+  height: 100%;
+}
+
+.content1 {
+  padding: 20rpx 30rpx 0rpx 30rpx;
+  border: 1rpx rgb(228, 226, 226) solid;
+  margin: 20rpx 20rpx;
+  background: rgba(146, 200, 219, 0);
+  border-radius: 20rpx;
+}
+
+.content1text {
+  font-family: 微软雅黑;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+
+.content1text .title2 {
+  font-family: 微软雅黑;
+  color: rgb(0, 0, 0);
+  font-size: 35rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.content1text .time {
+  margin-top: 30rpx;
+}
+
+.targer {
+  display: inline-block;
+  width: 120rpx;
+  height: 35rpx;
+  color: rgb(147, 159, 161);
+  line-height: 35rpx;
+  font-size: 30rpx;
+}
+
+.targer2 {
+  display: inline-block;
+  width: 120rpx;
+  height: 35rpx;
+  color: rgb(143, 156, 172);
+  line-height: 35rpx;
+  font-size: 30rpx;
+}
+
+.enter {
+  text-align: center;
+  margin:auto;
+  font-size: 28rpx;
+  width: 120rpx;
+  height: 40rpx;
+  float: right;
+  color: rgb(233, 233, 245);
+  border: 1rpx rgb(245, 239, 239) solid;
+  border-radius: 20rpx;
+}
+.ready{
+  background-color: #409EFF;
+}
+.applyIng{
+  background-color: #67C23A;
+}
+.applyed{
+  background-color: #E6A23C;
+}
+.loading{
+  background-color: #F56C6C;
+}
+.end{
+  background-color: #909399;
+}

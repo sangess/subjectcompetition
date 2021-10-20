@@ -1,0 +1,27 @@
+/* pages/getprize/getprize.wxss */
+page{
+  background-color: rgba(99, 98, 70, 0.479);
+  
+}
+.content-info{
+  height:100%;
+  width: 100%;
+}
+.content1{
+  margin-top: 20rpx;
+}
+.content1text{
+  font-size: 30rpx;
+  width:85%;
+  padding:20rpx;
+  border:10px solid #ccc;
+  margin:0 auto; 
+  background-color:white;
+}
+.parter,.teacher{
+ display: flex;
+ flex: left;
+}
+.coms{
+  margin-left:20rpx;
+}

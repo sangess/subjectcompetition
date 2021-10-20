@@ -1,0 +1,5 @@
+subjectcompetition文件夹为springboot后端文件夹
+subject-vue文件夹为vue前端文件夹
+competition文件夹为微信小程序端文件夹
+subjectcompetition.sql为数据库文件
+subjectcompetition-1.0.jar文件为可执行jar包

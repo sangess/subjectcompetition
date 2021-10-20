@@ -1,0 +1,44 @@
+{
+  "pages":[
+    "pages/person/person",
+    "pages/index/index",
+    "pages/register/register",
+    "pages/comps/comps",
+    "pages/myself/myself",
+    "pages/component/component"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#black",
+    "selectedColor": "#c25b5b",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/com.png",
+        "selectedIconPath": "images/comchecked.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/comps/comps",
+        "iconPath": "/images/mycom.png",
+        "selectedIconPath": "images/mycomchecked.png",
+        "text": "竞赛"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "iconPath": "/images/per.png",
+        "selectedIconPath": "images/perchecked.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

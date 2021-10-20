@@ -1,0 +1,193 @@
+page {
+  display: flex;
+  flex-direction: column;
+  background: #f7f8fa;
+  height: 100%;
+}
+
+.tab {
+  display: flex;
+}
+
+.tab-item {
+  flex: 1;
+  font-size: 10pt;
+  text-align: center;
+  line-height: 72rpx;
+  border-bottom: 6rpx solid #eee;
+}
+
+
+
+.tab-item.active {
+  color: #c25b5b;
+  border-bottom-color: #c25b5b;
+}
+
+.content > swiper{
+  height: 1000rpx;
+}
+
+
+.content-info {
+  height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+/*首页*/
+
+/*.title {
+  color: rgb(6, 47, 124);
+  width: 100%;
+  height: 50rpx;
+  padding: 15rpx;
+  padding-left: 30rpx;
+  border-bottom: 1px solid rgb(181, 202, 241);
+}*/
+
+/* 内容栏 */
+.content-info {
+  width: 100%;
+  height: 100%;
+}
+
+.content1 {
+  padding: 20rpx 30rpx 0rpx 30rpx;
+  border: 1rpx rgb(228, 226, 226) solid;
+  margin: 20rpx 20rpx;
+  background: rgba(0, 0, 0, 0.048);
+  border-radius: 20rpx;
+}
+
+.content1text {
+  font-family: 微软雅黑;
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+
+.content1text .title2 {
+  font-family: 微软雅黑;
+  color: rgb(0, 0, 0);
+  font-size: 35rpx;
+  line-height: 80rpx;
+}
+
+.content1text .time {
+  margin-top: 30rpx;
+}
+
+.projectName{
+  font-family: 微软雅黑;
+  height:50rpx;
+  line-height: 50rpx;
+  margin-top:20rpx;
+}
+
+.content1text .time{
+  margin-top:30rpx;
+ 
+}
+.teacherName{
+  font-family: 微软雅黑;
+  line-height: 50rpx;
+  margin-top:20rpx;
+}
+
+
+.btn_myComps{
+
+  float: right;
+}
+
+#checkTeam{
+  background-color: #60ddc8;
+}
+#exitTeam{
+  background-color: #c25b5b;
+}
+
+.label{
+  color: #909399;
+}
+
+.enter {
+  text-align: center;
+  font-size: 28rpx;
+  width: 120rpx;
+  height: 40rpx;
+  color: rgb(233, 233, 245);
+  border: 1rpx rgb(245, 239, 239) solid;
+  border-radius: 20rpx;
+  float: right;
+}
+.ready{
+  background-color: #409EFF;
+}
+.applyIng{
+  background-color: #67C23A;
+}
+.applyed{
+  background-color: #E6A23C;
+}
+.loading{
+  background-color: #F56C6C;
+}
+.end{
+  background-color: #909399;
+}
+.imgs{
+  width:40rpx;
+  height:40rpx;
+}
+
+.isRuleShow{
+  display: block;
+}
+.isRuleHide{
+  display: none;
+}
+.ruleZhezhao{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color:rgba(0, 0, 0, .5);
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+
+.ruleZhezhaoContent{
+  padding: 5rpx 0;
+  width: 80%;
+  background: #e1d2b1;
+  margin: 10% auto;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+}
+.ruleZhezhaoText{
+  width: 80%;
+  font-size: 25rpx;
+  color: #856d5f;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 2rpx 0 50rpx 0;
+}
+
+.ruleHide{
+  height: 60rpx!important;
+  width: 60rpx!important;
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+}
+
+/**/

@@ -1,0 +1,88 @@
+<view>
+  <!-- 轮播图 -->
+  <view>
+    <swiper class="content-info-slide" indicator-color="rgba(255,255,255,.5)" indicator-active-color="#fff"
+      indicator-dots circular autoplay>
+      <swiper-item wx:for="{{lbtImage}}" wx:key="key" wx:for-item="item">
+        <image src="{{item.imageUrl}}" />
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 搜索栏 -->
+  <view class="page__bd">
+    <view class="weui-search-bar {{inputShowed ? 'weui-search-bar_focusing' : ''}}" id="searchBar">
+      <form class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <i class="weui-icon-search"></i>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}"
+            focus="{{inputShowed}}" bindinput="inputTyping" />
+          <span class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput"></span>
+        </view>
+        <label class="weui-search-bar__label" bindtap="showInput">
+          <i class="weui-icon-search"></i>
+          <span class="weui-search-bar__text">搜索</span>
+        </label>
+      </form>
+      <view class="weui-search-bar__cancel-btn" bindtap="hideInput">取消</view>
+    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+      <view class="weui-cell weui-cell_active weui-cell_access">
+        <view class="weui-cell__bd weui-cell_primary">
+          <view>实时搜索文本</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access">
+        <view class="weui-cell__bd weui-cell_primary">
+          <view>实时搜索文本</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access">
+        <view class="weui-cell__bd weui-cell_primary">
+          <view>实时搜索文本</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access">
+        <view class="weui-cell__bd weui-cell_primary">
+          <view>实时搜索文本</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 竞赛项目 -->
+  <view class="content">
+    <view class="title">竞赛项目</view>
+    <swiper-item>
+      <!-- 内容滚动区域 -->
+      <scroll-view class="content-info" scroll-y>
+        <view wx:for="{{list}}"  wx:key="index" wx:for-item="item">
+          <view class='content1' bindtap="postto" data-bzId="{{item._id}}">
+            <view class="content1text">
+              <view>
+                <span class="title2" bindtap="">{{item.compName}}</span>
+                <view class=" enter {{ item.compState==0?'ready':item.compState==1?'applyIng':item.compState==2?'applyed':item.compState==3?'loading':'end'}}">
+                  <span>
+                  {{item.compState==0?'规划中':
+                  (item.compState==1?'报名中':
+                  (item.compState==2?'备赛中':
+                  (item.compState==3?'比赛中':'已结束')))}}</span>
+                  </view>
+              </view>
+              <view class="message">
+                <view>
+                  <span class="targer">举办方</span>
+                  <span>{{item.organizer}}</span>
+                  <span>({{item.level==0?'国家级':(item.level==1?'省级':'校级')}})</span>
+                </view>
+              </view>
+              <view class="date">
+                <view><span class="targer2">报名时间</span><span>{{item.canApplyTime}}-{{item.notApplyTime}}</span></view>
+              </view>
+              <view class="time"><span>比赛时间：</span>{{item.occurrenceTime}}</view>
+            </view>
+          </view>
+          <view class="kongge"></view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </view>
+</view>
