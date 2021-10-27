@@ -10,8 +10,15 @@ import com.sang.subjectcompetition.service.ProjectService;
 import com.sang.subjectcompetition.service.StudentService;
 import com.sang.subjectcompetition.service.util.ScoreUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -118,5 +125,29 @@ public class AwardsServiceImpl implements AwardsService {
     @Override
     public List<Awards> findAll() {
         return awardsRepository.findAll();
+    }
+
+    @Override
+    public List<Awards> findAll(Date beginDate, Date endDate, Integer type, Integer level) {
+        Specification<Awards> specification = new Specification<Awards>() {
+            @Override
+            public Predicate toPredicate(Root<Awards> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+                List<Predicate> predicates = new ArrayList<>();
+                if(!StringUtils.isEmpty(beginDate)){
+                    predicates.add(cb.greaterThanOrEqualTo(root.get("awardsTime").as(Date.class),beginDate));
+                }
+                if(!StringUtils.isEmpty(endDate)){
+                    predicates.add(cb.lessThan(root.get("awardsTime").as(Date.class),endDate));
+                }
+                if(type!=null){
+                    predicates.add(cb.equal(root.get("type").as(Integer.class),type));
+                }
+                if(level!=null){
+                    predicates.add(cb.equal(root.get("level").as(Integer.class),level));
+                }
+                return cb.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        };
+        return awardsRepository.findAll(specification);
     }
 }

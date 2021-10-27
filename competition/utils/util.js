@@ -13,6 +13,20 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : `0${n}`
 }
+
+const getNowTime = () =>{
+  let now = new Date();
+  return now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate();
+}
+
+const getStartTime = () =>{
+  let now = new Date();
+  let nowYear = now.getFullYear();
+  return  (nowYear-2)+"-01-01";
+}
+
 module.exports = {
-  formatTime
+  formatTime,
+  getNowTime,
+  getStartTime
 }

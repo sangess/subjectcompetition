@@ -53,13 +53,16 @@ class SubjectcompetitionApplicationTests {
     private ProjectService projectService;
 
     @Autowired
-    private Teacher_ProjectService teacher_projectService;
+    private AwardsService awardsService;
 
     @Test
     void test(){
-        Date[] firstAndLastDay = DateUtils.getFirstAndLastDay(0);
-        for (Date date : firstAndLastDay) {
-            System.out.println(date);
+        Date[] recentYear = DateUtils.getDateArray(0);
+        for (int i=0;i<recentYear.length-1 ; i++) {
+            List<Awards> awardsList = awardsService.findAll(recentYear[i], recentYear[i + 1], 4, 4);
+            if(awardsList!=null){
+                System.out.println(awardsList);
+            }
         }
     }
 }

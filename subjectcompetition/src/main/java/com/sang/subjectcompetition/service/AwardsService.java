@@ -3,6 +3,7 @@ package com.sang.subjectcompetition.service;
 import com.sang.subjectcompetition.entity.Awards;
 import com.sang.subjectcompetition.entity.resultInfo.ProResult;
 
+import java.util.Date;
 import java.util.List;
 
 public interface AwardsService {
@@ -18,5 +19,7 @@ public interface AwardsService {
     ProResult deleteApply(Integer awardsId);
 
     List<Awards> findAll();
+
+    List<Awards> findAll(Date beginDate,Date endDate,Integer type,Integer level);
 
 }

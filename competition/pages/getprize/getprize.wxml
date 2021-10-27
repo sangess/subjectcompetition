@@ -12,20 +12,23 @@
             <view class="grade">
               <span>获奖名次：</span>{{item.type==1?'校级':(item.type==2?'市级':(item.type==3?'省级':'全国'))}}{{item.level==4?'一等奖':(item.level==3?'二等奖':(item.level==2?'三等奖':item.content))}}
             </view>
-            <view class="teacher" >
+            <view class="teacher">
               <view>指导老师：</view>
-              <view class='coms' wx:for="{{item.teachers}}" wx:for-item="item3" wx:key="id"> {{item3.teacherName}}</view>
+              <view class='coms' wx:for="{{item.teachers}}" wx:for-item="item3" wx:key="id"> {{item3.teacherName}}
+              </view>
             </view>
-            <view class="parter" >
+            <view class="parter">
               <view>参赛学生：</view>
-              <view class='coms' wx:for="{{item.students}}" wx:for-item="item2" wx:key="id"> {{item2.studentName}}</view>
+              <view class='coms' wx:for="{{item.students}}" wx:for-item="item2" wx:key="id"> {{item2.studentName}}
+              </view>
             </view>
             <view class="time">
               <span>获奖时间：</span>{{item.awardsTime}}
             </view>
-          <view class="content1img">获奖证书：
-            <image style="width:200rpx;height:140rpx;" src='{{item.imageUrl}}' bindtap="imgYu" data-list='{{imgList}}' data-src='{{item.imageUrl}}'/>
-          </view>
+            <view class="content1img">获奖证书：
+              <image style="width:200rpx;height:140rpx;" src='{{item.imageUrl}}' bindtap="imgYu" data-list='{{imgList}}'
+                data-src='{{item.imageUrl}}' />
+            </view>
           </view>
 
         </view>

@@ -35,6 +35,7 @@ public class WxController {
         JSONObject SessionKeyOpenId = WechatUtil.getSessionKeyOrOpenId(code);
         // 3.接收微信接口服务 获取返回的参数
         String openid = SessionKeyOpenId.getString("openid");
+        System.out.println(openid);
         String sessionKey = SessionKeyOpenId.getString("session_key");
         // 5.根据返回的User实体类，判断用户是否是新用户，是的话，将用户信息存到数据库；不是的话，更新最新登录时间
       /*  User user = this.userMapper.selectById(openid);*/

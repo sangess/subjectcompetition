@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtils {
+
     public static Date getYearFirst(int year) {
         Calendar calendar = Calendar.getInstance();
         calendar.clear();
@@ -11,6 +12,7 @@ public class DateUtils {
         Date currYearFirst = calendar.getTime();
         return currYearFirst;
     }
+
     public static Date getStartTimeOfDay(Date date){
         Calendar day= Calendar.getInstance();
         day.setTime(date);
@@ -35,8 +37,9 @@ public class DateUtils {
         Calendar calendar = Calendar.getInstance();
         return calendar.get(Calendar.YEAR);
     }
+
     public static Date[] getDateArray(int year){
-        Date[] dates = new Date[13];
+        Date[] dates = new Date[year==0?14:13];
         Date yearFirst = null;
         if(year == 0){
             Calendar instance = Calendar.getInstance();
@@ -51,6 +54,21 @@ public class DateUtils {
             cal.setTime(dates[i-1]);
             cal.add(Calendar.MONTH, +1);
             dates[i] = cal.getTime();
+        }
+        return dates;
+    }
+
+    public static Date[] getRecentYear(int year){
+        Date[] dates = new Date[year+1];
+        Date nowYearFirst = DateUtils.getYearFirst(getNowYear());
+        Calendar instance = Calendar.getInstance();
+        instance.setTime(nowYearFirst);
+        instance.add(Calendar.YEAR,-year+1);
+        Date firstYear = instance.getTime();
+        dates[0]=firstYear;
+        for(int i = 1 ; i < dates.length ; i++){
+            instance.add(Calendar.YEAR,+1);
+            dates[i]=instance.getTime();
         }
         return dates;
     }
@@ -77,4 +95,5 @@ public class DateUtils {
         }
         return dates;
     }
+
 }

@@ -25,7 +25,9 @@ Page({
     selectShow: false,//控制下拉列表的显示隐藏，false隐藏、true显示
     index: 0,//选择的下拉列表下标
     projectId:"",
-    content:""
+    content:"",
+    startTime:util.getStartTime(),
+    endTime:util.getNowTime(),
   
   }, 
   bindShowMsg() {
@@ -48,6 +50,12 @@ bindPickerChangeProject:function(e){
    type: 4-e.detail.value
   })
  },
+
+ bindDateChange: function(e) {
+  this.setData({
+    date: e.detail.value
+  })
+},
   //获奖名次选择
   bindPickerChangess: function (e) {
     let that=this;
@@ -60,8 +68,18 @@ bindPickerChangeProject:function(e){
 //  提交
  formSubmit(e) {
    let that=this;
+   console.log(e.detail.value);
    e.detail.value.type=that.data.type;
    e.detail.value.level=that.data.level;
+   if(e.detail.value.content!=null){
+    that.setData({
+     content:e.detail.value.content
+    })
+  }else{
+   that.setData({
+     content:"无其他"
+    })
+  }
    if(e.detail.value.projectId==null){
     wx.showToast({
       title: '请选择比赛！',
@@ -74,49 +92,49 @@ bindPickerChangeProject:function(e){
       icon: 'error',
       duration: 2000
     })
-   }
-   if(e.detail.value.content!=null){
-     that.setData({
-      content:e.detail.value.content
-     })
-
+   }else if(e.detail.value.awardsTime==null||e.detail.value.awardsTime==""){
+    wx.showToast({
+      title: '未选择获奖时间！',
+      icon: 'error',
+      duration: 2000
+    })
    }else{
-    that.setData({
-      content:"无其他"
-     })
-   }
-   wx.uploadFile({
-    url: app.globalData.apiUrl+'/wx/applyAwards', 
-    filePath: that.data.uploadimgs[0],
-    name: 'image',
-    formData: {
-      projectId:e.detail.value.projectId,
-      type:that.data.type,
-      level:that.data.level,
-      imageUrl:that.data.imageUrl,
-      content:that.data.content
-    },
-    success (res){
-      var response=JSON.parse(res.data);
-      console.log(response);
-      if(response.code==200){
-        wx.showToast({
-          title: '上报成功！',
-          icon: 'success',
-          duration: 4000,
-        })
-        wx.redirectTo({
-          url: '../myself/myself',
-        })
-      }else{
-        wx.showToast({
-          title: '系统异常',
-          icon: 'error',
-          duration: 4000,
-        })
+    wx.uploadFile({
+      url: app.globalData.apiUrl+'/wx/applyAwards', 
+      filePath: that.data.uploadimgs[0],
+      name: 'image',
+      formData: {
+        projectId:e.detail.value.projectId,
+        type:that.data.type,
+        level:that.data.level,
+        imageUrl:that.data.imageUrl,
+        content:that.data.content,
+        awardsTime:e.detail.value.awardsTime
+      },
+      success (res){
+        var response=JSON.parse(res.data);
+        console.log(response);
+        if(response.code==200){
+          wx.showToast({
+            title: '上报成功！',
+            icon: 'success',
+            duration: 4000,
+          })
+          wx.redirectTo({
+            url: '../myself/myself',
+          })
+        }else{
+          wx.showToast({
+            title: '系统异常',
+            icon: 'error',
+            duration: 4000,
+          })
+        }
       }
-    }
-  })
+    })
+   }
+   
+   
 },
 
   chooseImage: function () {

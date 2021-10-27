@@ -49,6 +49,9 @@ public class Awards implements Comparable<Awards>{
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateApplyDate;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date awardsTime;
+
     @OneToOne
     @JoinColumn(name = "project_id")
     private Project project;

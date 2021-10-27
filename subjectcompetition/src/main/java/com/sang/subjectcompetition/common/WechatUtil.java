@@ -29,7 +29,7 @@ public class WechatUtil {
         //小程序appId
         requestUrlParam.put("appid", "wx16c96a4f40a431f6");
         //小程序secret
-        requestUrlParam.put("secret", "5eafdf4212ad5b3601cc760e15354aae");
+        requestUrlParam.put("secret", "5aa4daefe7d49d25abd0469ff686c0b4");
         //小程序端返回的code
         requestUrlParam.put("js_code", code);
         //默认参数
